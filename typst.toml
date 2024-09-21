@@ -1,0 +1,16 @@
+[package]
+name = "Cnam templates"
+version = "0.1.0"
+authors = ["Mathieu Aucejo"]
+license = "MIT"
+description = "Official templates for the Cnam"
+entrypoint = "src/elsearticle.typ"
+categories = ["report", "presentation"]
+# repository = "https://github.com/maucejo/elsearticle"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/main.png"
+
+
