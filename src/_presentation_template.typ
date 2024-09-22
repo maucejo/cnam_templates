@@ -2,6 +2,7 @@
 #import "_slides.typ": *
 
 #let cnam-theme(
+  composante: "cnam",
   color-set: "red",
   ..args,
   body
@@ -12,8 +13,6 @@
       subtitle: none,
       author: none,
       over-title: none,
-      logo: image("resources/assets/lecnam.png"),
-      title-logo-height: 32pt,
       facade: "image"
     ),
 
@@ -43,6 +42,9 @@
       align: align,
       colors: color-theme.at(color-set),
       color-theme-name: color-set,
+      composante: composante,
+      title-logo-height: 8%,
+      logo: image("resources/logo/" + composante + ".png"),
     ),
     ..args,
   )

@@ -50,8 +50,14 @@
 
 #let title-slide = touying-slide-wrapper(self => {
   let content = {
-    set image(height: self.info.title-logo-height)
-    place(top + right, dx: -1cm, dy: -1.25cm, self.info.logo)
+    let title-logo-height = 6.5%
+    let dy = -1.25cm
+    if self.store.composante != "cnam" {
+      title-logo-height= 12%
+      dy = -1.75cm
+    }
+    set image(height: title-logo-height)
+    place(top + right, dx: -1cm, dy: dy, self.store.logo)
 
     if self.info.facade == "image" {
       box(fill: self.store.colors.primary, width: 100%, height: 110%)[
@@ -105,8 +111,14 @@
 
 #let new-section-slide(level: 1, numbered: true, title) = touying-slide-wrapper( self => {
   let content = {
-    set image(height: self.info.title-logo-height)
-    place(top + right, dx: -1cm, dy: -1.25cm, self.info.logo)
+    let title-logo-height = 6.5%
+    let dy = -1.25cm
+    if self.store.composante != "cnam" {
+      title-logo-height= 12%
+      dy = -1.75cm
+    }
+    set image(height: title-logo-height)
+    place(top + right, dx: -1cm, dy: dy, self.store.logo)
 
     box(fill: self.store.colors.secondary, width: 100%, height: 110%)[
         #set align(center + horizon)
@@ -133,8 +145,14 @@
 
 #let focus-slide(body) = touying-slide-wrapper(self => {
   let content = {
-    set image(height: self.info.title-logo-height)
-    place(top + right, dx: -1cm, dy: -1.25cm, self.info.logo)
+    let title-logo-height = 6.5%
+    let dy = -1.25cm
+    if self.store.composante != "cnam" {
+      title-logo-height= 12%
+      dy = -1.75cm
+    }
+    set image(height: title-logo-height)
+    place(top + right, dx: -1cm, dy: dy, self.store.logo)
 
     box(fill: self.store.colors.secondary, width: 100%, height: 110%)[
       #set align(center + horizon)

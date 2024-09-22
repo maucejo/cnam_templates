@@ -1,6 +1,8 @@
 #import "../src/cnam-templates.typ": *
 
 #show: cnam-theme.with(
+  // composante: "lmssc",
+  // composante: "cnam",
   // color-set: "medium-blue",
   // color-set: "clear-blue",
   config-info(
@@ -8,7 +10,7 @@
     subtitle: [Sous-titre de la présentation],
     over-title: ("Diaporama","de présentation"),
     // facade: "image",
-    // facade: "photo",
+    facade: "photo",
   ),
 )
 
