@@ -3,14 +3,14 @@
 #show: cnam-theme.with(
   // composante: "lmssc",
   // composante: "cnam",
-  // color-set: "medium-blue",
+  color-set: "medium-blue",
   // color-set: "clear-blue",
   config-info(
     title: [Titre de la présentation],
     subtitle: [Sous-titre de la présentation],
     over-title: ("Diaporama","de présentation"),
     // facade: "image",
-    facade: "photo",
+    // facade: "photo",
   ),
 )
 
@@ -21,6 +21,8 @@
 == Sous-titre de la section
 
 #lorem(20)
+#type(rgb("c1002a"))
+
 
 #focus-slide[
 
