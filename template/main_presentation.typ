@@ -1,6 +1,6 @@
 #import "../src/cnam-templates.typ": *
 
-#show: cnam-theme.with(
+#show: cnam-presentation.with(
   // composante: "lmssc",
   // composante: "cnam",
   // color-set: "medium-blue",

@@ -1,7 +1,7 @@
 #import "@preview/touying:0.5.2": *
 #import "_slides.typ": *
 
-#let cnam-theme(
+#let cnam-presentation(
   composante: "cnam",
   color-set: "red",
   ..args,
