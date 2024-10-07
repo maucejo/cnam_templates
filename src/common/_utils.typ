@@ -20,6 +20,9 @@
     box1
 
     let dec = box1-size - box2-size/2.5
+    if dec < 0cm {
+      dec = box1-size/4
+    }
     place(dx: dec, box2)
   }
   v(1em)

@@ -2,22 +2,17 @@
 #import "../common/_utils.typ": *
 #import "_report-utils.typ": *
 
-#let cnam-rapport(
-  composante: "cnam",
-  type: "cr",
+#let default-config = (
   titre: none,
-  surtitre: none,
+  surtitre: ("En-tête", "personnalisable"),
+  composante: "cnam",
+  alignement: "irreg"
+)
+
+#let cnam-rapport(
+  config-titre: default-config,
   body
 ) = {
-  let logo-height = 4.08cm
-  let decx = -0.073cm
-  let decy = 0.085cm
-  if composante != "cnam" {
-    logo-height = 10cm
-    decx = 0cm
-    decy = 0cm
-  }
-
   set heading(numbering: "1.1.")
   show heading.where(level: 1): it => {
     set text(size: 14pt, fill: primary.dark-blue)
@@ -30,7 +25,7 @@
 
   set par(justify: true)
 
-  title-page(titre)
+  title-page(config-titre)
 
   body
 }
