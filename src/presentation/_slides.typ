@@ -1,5 +1,5 @@
 #import "@preview/touying:0.5.2": *
-#import "_utils.typ": *
+#import "_pres-utils.typ": *
 
 #let _typst-builtin-align = align
 

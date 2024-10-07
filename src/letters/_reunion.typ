@@ -1,5 +1,5 @@
-#import "_colors.typ": *
-#import "_utils.typ": *
+#import "../common/_colors.typ": *
+#import "../common/_utils.typ": *
 
 #let cnam-reunion(
   composante: "cnam",
@@ -22,7 +22,7 @@
 
   set heading(numbering: "1.1.")
   show heading.where(level: 1): it => {
-    set text(size: 14pt, fill: blue)
+    set text(size: 14pt, fill: primary.dark-blue)
 
     it
     v(0.5em)
@@ -36,7 +36,7 @@
     grid(
       columns: (1fr, 1fr),
       align: left,
-      [#context counter(page).at(here()).first()], [#place(right + horizon, dx: -1.25cm, over-title(title: ("Conservatoire national", "des arts et métiers"), size: 12pt, color: blue))]
+      [#context counter(page).at(here()).first()], [#place(right + horizon, dx: -1.25cm, over-title(title: ("Conservatoire national", "des arts et métiers"), size: 12pt, color: primary.dark-blue))]
     )
   }
   set page(
@@ -56,7 +56,7 @@
     grid(
       columns: (1fr, 1fr),
       align: (left, right),
-      [#over-title(title: surtitre, size: 20pt, color: blue)], [#place(right, dx: decx, dy: decy, image("../resources/logo/" + composante + ".png", width: logo-height))]
+      [#over-title(title: surtitre, size: 20pt, color: primary.dark-blue)], [#place(right, dx: decx, dy: decy, image("../resources/logo/" + composante + ".png", width: logo-height))]
     )
   }
 
@@ -66,7 +66,7 @@
 
   if titre != none {
     set align(center)
-    set text(size: 18pt, fill: blue)
+    set text(size: 18pt, fill: primary.dark-blue)
 
     strong(titre)
   }
@@ -87,7 +87,7 @@
     set align(center)
 
     v(0.5em)
-    line(length: 50%, stroke: 0.5pt + blue)
+    line(length: 50%, stroke: 0.5pt + primary.dark-blue)
     v(0.5em)
   }
 

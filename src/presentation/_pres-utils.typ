@@ -1,5 +1,5 @@
 #import "@preview/touying:0.5.2": *
-#import "_colors.typ": *
+#import "../common/_colors.typ": *
 
 #let _over-title(self: none, title, size) = {
   let box1 = {

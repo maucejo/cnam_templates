@@ -1,5 +1,5 @@
-#import "_colors.typ": *
-#import "_utils.typ": *
+#import "../common/_colors.typ": *
+#import "../common/_utils.typ": *
 
 #let cnam-lettre(
   composante: "cnam",
@@ -24,7 +24,7 @@
 
   set heading(numbering: "1.1.")
   show heading.where(level: 1): it => {
-    set text(size: 14pt, fill: blue)
+    set text(size: 14pt, fill: primary.dark-blue)
 
     it
     v(0.5em)
@@ -38,7 +38,7 @@
     grid(
       columns: (1fr, 1fr),
       align: left,
-      [#h(-2.5cm) #context counter(page).at(here()).first()], [#place(right + horizon, dx: -0.75cm, block(over-title(title: ("Conservatoire national", "des arts et métiers"), size: 12pt, color: blue)))]
+      [#h(-2.5cm) #context counter(page).at(here()).first()], [#place(right + horizon, dx: -0.75cm, block(over-title(title: ("Conservatoire national", "des arts et métiers"), size: 12pt, color: primary.dark-blue)))]
     )
   }
   set page(
@@ -64,7 +64,7 @@
     grid(
       columns: (1fr, 1fr),
       align: (left, right),
-      [#place(dx: - 2.5cm, over-title(title: surtitre, size: 20pt, color: blue))], [#place(right, dx: decx, dy: decy, image("../resources/logo/" + composante + ".png", width: logo-height))]
+      [#place(dx: - 2.5cm, over-title(title: surtitre, size: 20pt, color: primary.dark-blue))], [#place(right, dx: decx, dy: decy, image("../resources/logo/" + composante + ".png", width: logo-height))]
     )
   }
 
