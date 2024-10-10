@@ -21,7 +21,7 @@
   }
 
   let tbox = box(fill: primary.light-blue.lighten(60%), width: box-width, height: box-height)[
-    #set text(fill: primary.dark-blue)
+    #set text(font: "Raleway", fill: primary.dark-blue)
 
     #config-titre.titre
   ]
@@ -33,4 +33,37 @@
     align: (left, right),
     [#place(top+left, dx: -0.85cm, dy: -1.45cm, over-title(title: config-titre.surtitre, size: 20pt, color: primary.dark-blue))], [#place(right, dx: decx, dy: decy, image("../resources/logo/" + config-titre.composante + ".png", width: logo-height))]
   )
+
+  if config-titre.alignement == "center" {
+    if config-titre.logo != none {
+      set image(height: 1.75cm)
+      if type(config-titre.logo) == content {
+        place(bottom + right, dy: 1.5cm, config-titre.logo)
+      } else {
+        let im-grid = {
+          grid(
+            columns: config-titre.logo.len(),
+            column-gutter: 1cm,
+            align: right+ horizon,
+            ..config-titre.logo.map((logos) => logos)
+          )
+        }
+
+        place(bottom + right, dy: 1.5cm, im-grid)
+      }
+    }
+  }
+
+  pagebreak()
+}
+
+#let create_dict(default-dict, user-dict) = {
+  let new-dict = default-dict
+    for (key, value) in user-dict {
+      if key in default-dict.keys() {
+        new-dict.insert(key, value)
+      }
+    }
+
+  return new-dict
 }
