@@ -24,7 +24,7 @@
 
     let dec = box1-size - box2-size/2.5
     if dec < 0cm {
-      dec = box1-size/4
+      dec = box1-size/3
     }
     place(dx: dec, box2)
   }
