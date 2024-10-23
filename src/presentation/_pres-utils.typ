@@ -55,6 +55,7 @@
     ]
   } else {
     box[
+      #colors
       #let box-title = {
         box(fill: self.store.colors.primary.transparentize(29%), width: 87%, height: 70%)[
         #set align(center + horizon)
