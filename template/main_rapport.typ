@@ -7,7 +7,7 @@
     titre: none,
     composante: "lmssc",
     // composante: "cnam",
-    alignement: "center",
+    // alignement: "center",
     // alignement: "irreg",
     surtitre: ("Guide", "pratique"),
     // logo: (image("../src/resources/logo/new/ccr-bretagne.png"), image("../src/resources/logo/new/ccr-ge.png"), image("../src/resources/logo/new/lmssc.png"))

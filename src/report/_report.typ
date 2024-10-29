@@ -18,11 +18,16 @@
 ) = {
   let titre-dict = create_dict(default-titre, config-titre)
 
-  set text(font: "Crimson Pro", size: 12pt, lang: "fr", ligatures: false, number-type: "old-style")
+  set text(font: "Crimson Pro", size: 12pt, lang: "fr", ligatures: false)
+  // , number-type: "old-style")
 
   set par(justify: true)
 
-  set list(marker: ([#text(fill:primary.dark-blue)[#sym.bullet]], [#text(fill:primary.dark-blue)[#sym.triangle.filled.r]], [#text(fill:primary.dark-blue)[--]]))
+  set list(indent: 1em, marker: ([#text(fill:primary.dark-blue)[#sym.bullet]], [#text(fill:primary.dark-blue)[#sym.triangle.filled.r]], [#text(fill:primary.dark-blue)[--]]))
+
+  set enum(indent: 1em)
+
+  set ref(supplement: none)
 
   set page(
     paper: "a4",

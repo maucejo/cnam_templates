@@ -12,8 +12,8 @@
     decy = -2cm
   }
 
-  let box-width = 125%
-  let box-height = 115%
+  let box-width = 119%
+  let box-height = 111%
   if config-titre.alignement == "center" {
     box-width = 107%
     box-height = 95%
