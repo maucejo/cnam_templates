@@ -62,7 +62,7 @@
   if sec-number {
     numbering = "1.1."
   }
-
+  set heading(numbering: numbering)
   show heading.where(level: 1): it => {
     set text(font: "Raleway", size: 14pt, fill: primary.red)
 
@@ -70,12 +70,18 @@
     v(0.5em)
   }
 
-  set heading(numbering: numbering)
   show heading.where(level: 2): it => {
     set text(font: "Raleway", size: 12pt, fill: primary.dark-blue)
     it
 
-    v(0.25em)
+    v(0.5em)
+  }
+
+  show heading.where(level: 3): it => {
+    set text(font: "Raleway", size: 11pt, fill: primary.dark-blue)
+    it
+
+    v(0.5em)
   }
 
   let footer = context {
