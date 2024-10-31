@@ -131,6 +131,6 @@
       signature
     }
 
-    place(dx: -2cm, sign)
+    place(dx: -2cm, box(sign))
   }
 }
