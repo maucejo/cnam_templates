@@ -42,6 +42,7 @@
     )
   }
   set page(
+    paper: "a4",
     footer: footer,
     margin: (top: 2.5cm, bottom: 2.5cm, left: 5cm, right: 2.5cm)
   )
@@ -114,7 +115,7 @@
 
   body
 
-  v(3em)
+  v(2em)
   if expediteur != none {
     let sign = {
       [*Contact*]
@@ -127,10 +128,9 @@
       linebreak()
       expediteur.mail
 
-      v(1em)
       signature
     }
 
-    place(dx: -2cm, box(sign))
+    move(dx: -2cm, sign)
   }
 }

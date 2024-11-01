@@ -73,6 +73,8 @@
 
   show raw: set text(font: "Liberation Mono", size: 11pt)
 
+  set ref(supplement: none)
+
   // Figures
   show figure.where(kind: image): set figure(numbering: "1", supplement: "Figure", gap: 1.5em)
   show figure.where(kind: image): set figure.caption(separator: [ -- ])
