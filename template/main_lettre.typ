@@ -1,7 +1,7 @@
 #import "../src/cnam-templates.typ": *
 
 #show: cnam-lettre.with(
-  // type: "lettre-officielle",
+  type: "lettre-officielle",
   // type: "courrier-interne",
   // type: "note-service",
   // type: "note-cadrage",

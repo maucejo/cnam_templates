@@ -41,7 +41,7 @@ Pour finir, la documentation de #typst est suffisamment bien écrite et détaill
 
 = Installation des gabarits
 
-La collection de gabarits Cnam est disponible sur le dépôt #link("https://github.com/maucejo/cnam_templates", text("Github", fill: typst-color)) de l'auteur. Vous pouvez alors soit cloner le dépôt, soit télécharger le fichier zip de la dernière _Release_ contenant les gabarits. Pour utiliser les gabarits, deux possibilités s'offrent à vous :
+La collection de gabarits Cnam est disponible sur le dépôt #link("https://github.com/maucejo/cnam_templates", text("Github", fill: typst-color)) de l'auteur. Vous pouvez ainsi soit cloner le dépôt, soit télécharger le fichier zip de la dernière _Release_ contenant les gabarits. Pour utiliser les gabarits, deux possibilités s'offrent à vous :
 
 + Copier l'ensemble du dossier `cnam_templates` dans le dossier de votre projet #typst. Vous pouvez alors inclure les gabarits dans votre document en utilisant par exemple la commande :
 	#codesnippet[
@@ -89,13 +89,13 @@ Le dossier `cnam_templates` contient actuellement plusieurs gabarits différents
 
 - des lettres ;
 - des conventions ;
-- des comptes-rendus de réunion ;
+- des documents de réunion ;
 - des rapports ;
 - des diaporamas.
 
-== Lettres <s:lettres>
+== Lettres
 
-Après avoir importé le modèle, celui doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-lettre") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
+Après avoir importé le modèle, celui-ci doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-lettre") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
 
 #codesnippet(
 	```typ
@@ -109,7 +109,7 @@ Le modèle #cmd("cnam-lettre") possède un certain nombre de paramètres permett
 
 #pagebreak()
 #command("cnam-lettre", ..args(
-composante: "cnam",
+  composante: "cnam",
   type: none,
   surtitre: none,
   destinataire: none,
@@ -121,24 +121,304 @@ composante: "cnam",
 [body]))[
 	#argument("composante", default: "cnam", types: "string")[Nom de la composante Cnam émettrice de la lettre. Ce paramètre permet de définir le logo qui sera affiché dans l'en-tête de la lettre.
 
-	Pour connaître l'ensemble des valeurs possibles, se réferrer à la section @s:common-param.
+	Pour connaître l'ensemble des valeurs possibles, se réferrer à la section @s:composantes.
+	]
+
+	#argument("type", default: none, types: "string")[Type de lettre.
+
+	Si l'argument `surtitre` est renseigné, sa valeur remplace celle définie par `type`.
+
+	Les valeurs possibles sont :
+	- `"lettre-officielle"` ;
+	- `"courrier-interne"` ;
+	- `"note-service"` ;
+	- `"note-cadrage"`.
+	]
+
+	#argument("surtitre", default: none, types : "array")[Surtitre de la lettre.
+
+	Le surtitre permet de personnaliser le type de lettre. Il remplace la valeur définie par `type`.
+
+	_Exemple :_ `surtitre: ("Mon", "En-tête")`.
+	]
+
+	#argument("destinataire", default: none, types: "dict")[Coordonnées du destinataire de la lettre.
+
+	Le paramètre `destinataire` est un dictionnaire contenant les clés suivantes :
+	 - `nom` : nom du destinataire ;
+	 - `adresse` : adresse du destinataire.
+
+	#ibox[Les valeurs associées aux clés sont toute de type #dtype("string") ou #dtype("content").]
+	]
+
+	#argument("expediteur", default: none, types: "dict")[Coordonnées de l'expéditeur de la lettre.
+
+	Le paramètre `expediteur` est un dictionnaire contenant les clés suivantes :
+	 - `nom` : nom de l'expéditeur ;
+	 - `adresse` : adresse de l'expéditeur ;
+	 - `telephone` : numéro de téléphone de l'expéditeur ;
+	 - `mail` : adresse mail de l'expéditeur.
+
+	#ibox[Les valeurs associées aux clés sont toute de type #dtype("string") ou #dtype("content").]
+	]
+
+	#argument("objet", default: none, types: ("string", "content"))[Objet de la lettre.
+
+	_Exemple :_ `objet: "Objet de la lettre"`.
+	]
+
+	#argument("lieu", default: none, types: ("string", "content"))[Lieu de rédaction de la lettre.
+
+	_Exemple :_ `lieu: "Paris"`.
+	]
+
+	#argument("date", default: none, types: ("string", "content"))[Date de rédaction de la lettre.
+
+	_Exemple :_ `date: "01 janvier 2025"`.
+	]
+
+	#argument("signature", default: none, types: "content")[Signature de l'expéditeur.
+
+	_Exemple :_ `signature: image("ma-signature.png")`.
 	]
 ]
 
-#v(1em)
+#v(2em)
 == Conventions
 
-== Comptes-rendus
+Pour utiliser le modèle de conventions, celui-ci doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-convention") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
 
+#codesnippet(
+	```typ
+	#show cnam-convention.with(
+	  ...
+	)
+	```
+)
+
+Le modèle #cmd("cnam-convention") possède un certain nombre de paramètres permettant de personnaliser le document. Voici la liste des paramètres disponibles :
+
+#command("cnam-convention", ..args(
+  composante: "cnam",
+  convention: none,
+  titre: none,
+  partenaires: none,
+  lieu: none,
+  date: none,
+  toc: false,
+[body]))[
+	#argument("composante", default: "cnam", types: "string")[Nom de la composante Cnam émettrice de la convention. Ce paramètre permet de définir le logo qui sera affiché dans l'en-tête de la convention.
+
+	Pour connaître l'ensemble des valeurs possibles, se réferrer à la section @s:composantes.
+	]
+
+	#argument("convention", default: none, types: ("string", "content"))[Type de la convention.
+
+	La valeur de l'argument `convention` permet de définir la seconde partie du surtitre du document.
+
+	_Exemple :_ `convention: "cadre"`.
+	]
+
+	#argument("titre", default: none, types: ("string", "content"))[Titre de la convention.
+
+	_Exemple :_ `titre: [Convention cadre entre xxx et yyy]`.
+	]
+
+	#argument("lieu", default: none, types: ("string", "content"))[Lieu de signature de la convention.
+
+	_Exemple :_ `lieu: "Paris"`.
+	]
+
+	#argument("date", default: none, types: ("string", "content"))[Date de signature de la convention.
+
+	_Exemple :_ `date: "01 janvier 2025"`.
+	]
+
+	#argument("toc", default: false, types: "bool")[Affichage de la table des matières.
+
+	Le paramètre `toc` permet d'afficher ou de masquer la table des matières de la convention.
+	]
+]
+
+#v(2em)
+== Documents de réunion
+
+Pour utiliser les modèles de document de réunion, celui-ci doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-reunion") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
+
+#codesnippet(
+	```typ
+	#show cnam-reunion.with(
+	  ...
+	)
+	```
+)
+
+Le modèle #cmd("cnam-reunion") possède un certain nombre de paramètres permettant de personnaliser le document. Voici la liste des paramètres disponibles :
+
+#command("cnam-reunion", ..args(
+  composante: "cnam",
+  type: "cr",
+  titre: none,
+  redacteur: none,
+  lieu: none,
+  date: none,
+  toc: false,
+  [body]))[
+	#argument("composante", default: "cnam", types: "string")[Nom de la composante Cnam émettrice du compte-rendu. Ce paramètre permet de définir le logo qui sera affiché dans l'en-tête du compte-rendu.
+
+	Pour connaître l'ensemble des valeurs possibles, se réferrer à la section @s:composantes.
+	]
+
+	#argument("type", default: "cr", types: "string")[Type de document de réunion.
+
+	Ce paramètre définit le surtitre du document. Les valeurs possibles de ce paramètre sont :
+
+	- `"cr"` : Compte-rendu de réunion ;
+	- `"pv"` : Procès-verbal de réunion ;
+	- `"odj"` : Ordre du jour de réunion.
+	]
+
+	#argument("titre", default: none, types: ("string", "content"))[Intitulé de la réunion.
+
+	_Exemple :_ `titre: "Conseil de perfectionnement de la LP xxx"`.
+	]
+
+	#colbreak()
+
+	#argument("redacteur", default: none, types: ("string", "content"))[Nom du rédacteur du document.
+
+	_Exemple :_ `redacteur: "Jean Dupont"`.
+	]
+
+	#argument("lieu", default: none, types: ("string", "content"))[Lieu de la réunion.
+
+	_Exemple :_ `lieu: "Salle des conseils"`.
+	]
+
+	#argument("date", default: none, types: ("string", "content"))[Date de la réunion.
+
+	_Exemple :_ `date: "01 janvier 2025"`.
+	]
+
+	#argument("toc", default: false, types: "bool")[Affichage de la table des matières du document.]
+  ]
+
+#v(2em)
 == Rapports
 
+Pour utiliser le modèle de rapport, celui-ci doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-rapport") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
+
+#codesnippet(
+	```typ
+	#show cnam-rapport.with(
+	  ...
+	)
+	```
+)
+
+Le modèle #cmd("cnam-rapport") possède un certain nombre de paramètres permettant de personnaliser le document. Voici la liste des paramètres disponibles :
+
+#command("cnam-rapport", ..args(
+  config-titre: (:),
+  toc: true,
+  sec-number: true,
+  [body]))[
+	#argument("config-titre", default: (:), types: "dict")[Dictionnaire contenant les paramètres de personnalisation du titre du rapport.
+
+	Ce dictionnaire contient les clés suivantes :
+
+	- `titre` : titre du rapport
+		- type : #dtype("string") ou #dtype("content")
+		-  valeur par défaut : `none` ;
+
+	#colbreak()
+	- `surtitre` : surtitre du rapport
+		- type #dtype("array") ;
+		- valeur par défaut : `("En-tête", "personnalisable")` ;
+
+	- `composante` : composante Cnam rédactrice du rapport (voir section @s:composantes)
+		- type : #dtype("string") ;
+		- valeur par défaut : `"cnam"` ;
+
+	- `alignement` : alignement de la boîte colorée du titre
+		- type : #dtype("string") ;
+		- valeur par défaut : `"irreg"` pour un alignement irrégulier ;
+		- autre valeur possible : `"center"` pour un alignement centré.
+
+	- `logo` : logo du ou des partenaires rédacteur du rapport
+		- type : #dtype("content") ou #dtype("array") ;
+		- valeur par défaut : `none`.
+		_Exemple :_ `logo: (image("logo-partenaire1.png"), image("logo-partenaire2.png"))`.
+
+		#ibox[Les logos ne sont affichés que lorsque la valeur de la clé `alignement` est `"center"`.]
+	]
+  ]
+
+#v(2em)
 == Diaporamas
 
-== Paramètres communs aux gabarits <s:common-param>
+Pour utiliser le modèle de présentation, celui-ci doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-presentation") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
+
+#codesnippet(
+	```typ
+	#show cnam-presentation.with(
+	  ...
+	)
+	```
+)
+
+Le modèle #cmd("cnam-presentation") est un gabarit construit sur la base du paquet #text("Touying", fill: typst-color) (voir la documentation du paquet #link("https://touying-typ.github.io/", text(fill: typst-color)[ici])). Le modèle possède un certain nombre de paramètres permettant de personnaliser le document. Voici la liste des paramètres disponibles :
+
+#command("cnam-presentation", ..args(
+  composante: "cnam",
+  color-set: "red",
+  "..args",
+  [body]))[
+	#argument("composante", default: "cnam", types: "string")[Nom de la composante Cnam émettrice de la présentation. Ce paramètre permet de définir le logo qui sera affiché dans l'en-tête de la présentation.
+
+	Pour connaître l'ensemble des valeurs possibles, se réferrer à la section @s:composantes.
+	]
+
+	#colbreak()
+	#argument("color-set", default: "red", types: "dict")[Nom du thème de couleurs à utiliser pour la présentation.
+
+	Les valeurs possibles sont :
+
+	- `"red"` : thème dont la couleur principale est le rouge Cnam ;
+
+	- `"medium-blue"` : thème dont la couleur principales est le bleu médium ;
+
+	- `"light-blue"` : thème dont la couleurprincipale est le bleu clair.
+
+	#ibox[Le nom des thèmes de couleurs correspond aux noms des couleurs principales de la charte graphique Cnam rappelées en section @s:couleurs.]
+	]
+
+	#argument("..args", types: "array")[Paramètres supplémentaires à passer au modèle de présentation.
+
+	Ces paramètres permettent de personnaliser la présentation en fonction des besoins de l'utilisateur. Leur utilisation est expliquée dans la documentation du paquet #text("Touying", fill: typst-color).
+
+	Le principal paramètre à passer est `config-info` qui permet de définir les informations de la présentation. Ce paramètre est un #dtype("dict") contenant les clés suivantes :
+
+		- `title` : titre de la présentation
+		  - type : #dtype("string") ou #dtype("content").
+		- `subtitle` : sous-titre de la présentation ;
+		  - type : #dtype("string") ou #dtype("content").
+		- `over-title` : surtitre de la présentation
+		  - type : #dtype("array").
+		- `facade` : type d'illustration sur la diapositive de titre.
+		  - type : #dtype("string") ;
+		  - valeurs possibles : `"image"` ou `"photo"`.
+		    - `image` : image d'illustration de la façade du Cnam ;
+		    - `photo` : photographie de la façade du Cnam.
+	]
+  ]
+
+#v(2em)
+== Paramètres communs aux gabarits
 
 Cette section présente les paramètres communs à l'ensemble des gabarits de la collection. Ces paramètres permettent de personnaliser les gabarits en fonction des besoins de l'utilisateur.
 
-=== Paramètre `composante`
+=== Paramètre `composante` <s:composantes>
 
 La liste des valeurs possibles du paramètre `composante` sont :
 
@@ -205,7 +485,7 @@ La liste des valeurs possibles du paramètre `composante` sont :
 	- `"satie"`
 	- `"sayfood"`
 
-=== Couleurs
+=== Couleurs <s:couleurs>
 
 Les couleurs principales et secondaires de la charte graphique sont accessibles via les différents gabarits.
 

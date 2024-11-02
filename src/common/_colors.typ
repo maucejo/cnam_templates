@@ -49,7 +49,7 @@
     text-focus: rgb("c1002a"),
     section-title: rgb("c1002a"),
   ),
-  clear-blue: (
+  light-blue: (
     primary: rgb("a1d6df"),
     secondary: rgb("a1d6df"),
     blue: rgb("11304c"),

@@ -47,7 +47,7 @@
     margin: (top: 2.5cm, bottom: 2.5cm, left: 5cm, right: 2.5cm)
   )
 
-  if type != none{
+  if type != none and surtitre == none {
     if type == "lettre-officielle" {
       surtitre = ("Lettre", "officielle")
     } else if type == "courrier-interne" {
@@ -57,7 +57,7 @@
     } else if type == "note-cadrage" {
       surtitre = ("Note", "de cadrage")
     }
-  } else if surtitre == none{
+  } else if surtitre == none {
     surtitre = ("En-tête", "personnalisable")
   }
 

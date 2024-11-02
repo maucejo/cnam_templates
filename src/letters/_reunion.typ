@@ -49,7 +49,6 @@
     surtitre = ("Procès", "verbal")
   } else if type == "odj" {
     surtitre = ("Ordre", "du jour")
-    lieu = [Ordre du jour]
   }
 
   let en-tete = {
@@ -104,7 +103,7 @@
       #body
     ]
 
-    move(dx: 7.5%,content)
+    move(dx: 7.5%, content)
   } else {
     body
   }
@@ -112,7 +111,11 @@
   if redacteur != none {
     set align(right)
     v(2em)
-    [_Compte-rendu rédigé par :_]
+    if type == "pv" {
+      [_Procès-verbal rédigé par :_]
+    } else {
+      [_Compte-rendu rédigé par :_]
+    }
     linebreak()
     redacteur
   }

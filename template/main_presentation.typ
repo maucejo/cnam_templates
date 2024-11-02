@@ -4,7 +4,7 @@
   composante: "lmssc",
   // composante: "cnam",
   // color-set: "medium-blue",
-  // color-set: "clear-blue",
+  // color-set: "light-blue",
   config-info(
     title: [Titre de la présentation],
     subtitle: [Sous-titre de la présentation],

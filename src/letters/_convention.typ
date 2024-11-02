@@ -5,7 +5,6 @@
   composante: "cnam",
   convention: none,
   titre: none,
-  partenaires: none,
   lieu: none,
   date: none,
   toc: false,
