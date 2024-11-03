@@ -93,6 +93,8 @@ Le dossier `cnam_templates` contient actuellement plusieurs gabarits différents
 - des rapports ;
 - des diaporamas.
 
+#wbox[Pour utiliser les différents gabarits, il faut que les polices `Raleway` et `Crimson Pro` soient installées sur votre ordinateur.]
+
 == Lettres
 
 Après avoir importé le modèle, celui-ci doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-lettre") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
