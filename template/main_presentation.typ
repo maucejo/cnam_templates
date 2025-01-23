@@ -24,9 +24,7 @@
 
 
 #focus-slide[
-  ddlddlxx
-  // #text(size: 2em, weight: "semibold")[Merci de votre attention]
-  // #linebreak()
+  Merci de votre attention \
 
-  // Remerciements
+  #text(size: 0.8em, weight: "regular")[Remerciements]
 ]

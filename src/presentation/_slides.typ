@@ -114,8 +114,7 @@
 
 #let focus-slide(body, overtitle: false) = touying-slide-wrapper(self => {
   let content = {
-    set text(size: 2em, weight: "semibold")
-    title-box(self.store.colors.secondary, title: body, subtitle: none, color-title: self.store.colors.text-focus)
+    title-box(self.store.colors.secondary, title: text(size: 45pt, weight: "semibold")[#body], subtitle: none, color-title: self.store.colors.text-focus)
 
     if overtitle {
       place(top + left, dx: -0.5cm, dy: -1.29cm)[#over-title(self.info.over-title)]
@@ -126,7 +125,7 @@
     self,
     config-common(freeze-slide-counter: true),
     config-page(
-      margin: (top: 2cm, left: 1.25cm, x: 0em)
+      margin: (top: 2cm, left: 1.25cm, x: 0em, bottom: 0em)
     )
   )
   touying-slide(self: self, content)
