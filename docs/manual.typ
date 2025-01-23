@@ -43,10 +43,10 @@ Pour finir, la documentation de #typst est suffisamment bien écrite et détaill
 
 La collection de gabarits Cnam est disponible sur le dépôt #link("https://github.com/maucejo/cnam_templates", text("Github", fill: typst-color)) de l'auteur. Vous pouvez ainsi soit cloner le dépôt, soit télécharger le fichier zip de la dernière _Release_ contenant les gabarits. Pour utiliser les gabarits, deux possibilités s'offrent à vous :
 
-+ Copier l'ensemble du dossier `cnam_templates` dans le dossier de votre projet #typst. Vous pouvez alors inclure les gabarits dans votre document en utilisant par exemple la commande :
++ Copier l'ensemble du dossier `cnam-templates` dans le dossier de votre projet #typst. Vous pouvez alors inclure les gabarits dans votre document en utilisant par exemple la commande :
 	#codesnippet[
 	```typ
-	#import "./src/cnam_templates.typ": *
+	#import "./src/cnam-templates.typ": *
 	```
 	]
 
@@ -62,10 +62,10 @@ La collection de gabarits Cnam est disponible sur le dépôt #link("https://gith
 	#codesnippet[
 		```typ
 		// Si installation dans le dossier `/typst/packages/local`
-		#import "@local/cnam_templates:0.1.0": *
+		#import "@local/cnam-templates:0.1.0": *
 
 		// Si installation dans le dossier /typst/packages/preview`
-		#import "@preview/cnam_templates:0.1.0": *
+		#import "@preview/cnam-templates:0.1.0": *
 		```
 	]
 
@@ -108,8 +108,6 @@ Après avoir importé le modèle, celui-ci doit être initialisé en appliquant 
 )
 
 Le modèle #cmd("cnam-lettre") possède un certain nombre de paramètres permettant de personnaliser le document. Voici la liste des paramètres disponibles :
-
-#pagebreak()
 #command("cnam-lettre", ..args(
   composante: "cnam",
   type: none,
@@ -284,8 +282,6 @@ Le modèle #cmd("cnam-reunion") possède un certain nombre de paramètres permet
 
 	_Exemple :_ `titre: "Conseil de perfectionnement de la LP xxx"`.
 	]
-
-	#colbreak()
 
 	#argument("redacteur", default: none, types: ("string", "content"))[Nom du rédacteur du document.
 

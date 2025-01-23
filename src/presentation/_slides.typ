@@ -25,8 +25,8 @@
       [*#utils.display-current-heading(level: 1)* #h(1fr) #text(size: 0.8em)[*#utils.display-current-heading(level: 2)*]]
     }
 
-    let footer(self) = {
-      place(right, dx: -15pt, dy: -5pt)[#utils.slide-counter.display() / #utils.last-slide-number]
+    let footer(self) = context {
+      place(right, dx: -15pt, dy: -5pt)[#utils.slide-counter.at(here()).first() / #utils.last-slide-number]
     }
 
     let self = utils.merge-dicts(
@@ -114,6 +114,7 @@
 
 #let focus-slide(body, overtitle: false) = touying-slide-wrapper(self => {
   let content = {
+    set text(size: 2em, weight: "semibold")
     title-box(self.store.colors.secondary, title: body, subtitle: none, color-title: self.store.colors.text-focus)
 
     if overtitle {
