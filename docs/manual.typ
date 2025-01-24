@@ -558,4 +558,3 @@ Si vous souhaitez contribuer à l'amélioration des gabarits ou solliciter la cr
 - contacter l'auteur par mail à l'adresse suivante : #link("mailto:mathieu.aucejo@lecnam.net", text("mathieu.aucejo@lecnam.net", fill: typst-color)).
 
 #bibliography("manual-biblio.yml", style: "american-institute-of-aeronautics-and-astronautics")
-
