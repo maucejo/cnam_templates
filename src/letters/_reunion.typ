@@ -21,16 +21,25 @@
   }
 
   set heading(numbering: "1.1.")
-  show heading.where(level: 1): it => {
-    set text(size: 14pt, fill: primary.dark-blue)
+  show heading: it => {
+    if it.level == 1 {
+      set text(fill: primary.dark-blue)
 
-    it
-    v(0.5em)
+      it
+      v(0.5em)
+    } else {
+      it
+
+      v(0.5em)
+    }
   }
 
   set text(font: "Crimson Pro", size: 12pt, lang: "fr", ligatures: false)
 
   set par(justify: true)
+
+  set figure(supplement: "Figure", numbering: "1")
+  set figure.caption(separator: [ -- ] )
 
   let footer = {
     grid(
@@ -93,7 +102,7 @@
   if toc {
     set align(center)
     set par(leading: 1em)
-    outline(title: "Ordre du jour", depth: 2, indent: true)
+    outline(title: "Ordre du jour", depth: 2, indent: 1em)
     pagebreak()
   }
 

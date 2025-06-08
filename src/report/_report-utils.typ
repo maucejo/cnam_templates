@@ -57,13 +57,13 @@
   pagebreak()
 }
 
-#let create_dict(default-dict, user-dict) = {
-  let new-dict = default-dict
-    for (key, value) in user-dict {
-      if key in default-dict.keys() {
-        new-dict.insert(key, value)
-      }
-    }
+// #let create_dict(default-dict, user-dict) = {
+//   let new-dict = default-dict
+//     for (key, value) in user-dict {
+//       if key in default-dict.keys() {
+//         new-dict.insert(key, value)
+//       }
+//     }
 
-  return new-dict
-}
+//   return new-dict
+// }

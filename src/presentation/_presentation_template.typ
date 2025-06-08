@@ -1,4 +1,4 @@
-#import "@preview/touying:0.5.2": *
+#import "@preview/touying:0.6.1": *
 #import "_slides.typ": *
 
 #let cnam-presentation(
@@ -48,6 +48,8 @@
     ),
     ..args,
   )
+
+  set heading(numbering: "1.")
 
   body
 }

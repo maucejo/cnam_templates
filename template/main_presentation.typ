@@ -16,6 +16,8 @@
 
 #title-slide
 
+#content-slide()
+
 = Titre de la section
 
 == Sous-titre de la section

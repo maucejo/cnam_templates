@@ -16,7 +16,7 @@
   sec-number: true,
   body
 ) = {
-  let titre-dict = create_dict(default-titre, config-titre)
+  let titre-dict =  default-titre + config-titre
 
   set text(font: "Crimson Pro", size: 12pt, lang: "fr", ligatures: false)
   // , number-type: "old-style")
@@ -54,7 +54,8 @@
     it
     v(1em)
     }
-    outline(depth: 2, fill:none)
+    set outline.entry(fill: none)
+    outline(depth: 2)
     pagebreak()
   }
 

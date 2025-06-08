@@ -12,6 +12,17 @@
 
 = Point 1
 
+== Sous-point 1
+
+#figure(
+  image("../src/resources/assets/facade-image-rouge.svg"),
+  caption: "Légende de la figure",
+)
+
+#lorem(50)
+
+== Sous-point 2
+
 #lorem(50)
 
 = Point 2
