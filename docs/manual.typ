@@ -1,33 +1,56 @@
-#import "@preview/subpar:0.1.1"
-#import "./manual-template.typ": *
-#import "../src/cnam-templates.typ": *
+#import "@preview/showybox:2.0.4": *
+#import "@preview/hydra:0.6.2": hydra
+#import "@preview/mantys:1.0.2": *
+#import "@preview/cheq:0.2.3": *
+#import "@preview/swank-tex:0.1.0": LaTeX
+#import "@preview/cnam-templates:0.1.0": *
 
-#show: manual-template.with(
-	title: "Collection de gabarits Cnam",
-	abstract : [Ce package rassemble une collection de gabarits Typst utilisant la charte graphique conçue par la direction de la Communication du Conservatoire national des arts et métiers.],
-	version: "Template 0.1.0",
-	typst-version: "Typst 0.12.0"
+#set text(lang: "fr")
+#let typst-color = rgb(35,157,173)
+#let Typst = text("Typst", fill: typst-color)
+
+#show: mantys(
+  name: "cnam-templates.typ",
+  version: "0.1.0",
+  authors: (
+    "Mathieu Aucejo",
+  ),
+  license: "MIT",
+  description: "Gabarits Typst pour les documents de communication du Cnam",
+  repository: "https://github.com/maucejo/cnam-templates",
+
+  title: [Collection \ de gabarits Cnam],
+  date: datetime.today(),
+
+  abstract: [Ce package rassemble une collection de gabarits Typst utilisant la charte graphique conçue par la direction de la Communication du Conservatoire national des arts et métiers.],
+  show-index: false,
 )
 
 = Qu'est-ce que Typst ?
 
-#typst est un nouveau langage de balise open source é crit en Rust et développé à partir de 2019 par deux étudiants allemands, Laurenz Mädje et Martin Haug, dans le cadre de leur projet de master @Mad22 @Hau22. La version 0.1.0 a été publiée sur GitHub le 04 avril 2023#footnote[Adresse du dépôt GitHub : #link("https://github.com/typst/typst", text("https://github.com/typst/typst", fill: typst-color))].
+#Typst #typst est un nouveau langage de balise open source é crit en Rust et développé à partir de 2019 par deux étudiants allemands, Laurenz Mädje et Martin Haug, dans le cadre de leur projet de master @Mad22 @Hau22. La version 0.1.0 a été publiée sur GitHub le 04 avril 2023#footnote[Adresse du dépôt GitHub : #link("https://github.com/typst/typst", text("https://github.com/typst/typst", fill: typst-color))].
 
-#typst se présente comme un successeur de #LaTeX plus moderne, rapide et simple d'utilisation. Parmi ses avantages, on peut citer :
+#Typst se présente comme un successeur de #LaTeX plus moderne, rapide et simple d'utilisation. Parmi ses avantages, on peut citer :
 
 - la compilation incrémentale ;
+
 - des messages d'erreur clair et compréhensible ;
+
 - un langage de programmation Turing-complet ;
+
 - une système de style cohérent permettant de configurer aisément tous les aspects de son document (police, pagination, marges, #sym.dots) ;
+
 - une communauté active et sympathique (serveur Discord pour le support, annonce de nouveaux paquets) ;
+
 - un système de paquets simple d'utilisation (pour rechercher ou voir la liste des paquets, n'hésitez pas à visiter #link("https://typst.app/universe", text("Typst: Universe", fill: typst-color))) ;
+
 - des extensions pour VS Code existent, comme `Typst LSP` ou `Tinymist`, pour avoir des fonctionnalités similaires à `LaTeX Workshop`.
 
 #v(0.5em)
 
-Pour finir, la documentation de #typst est suffisamment bien écrite et détaillée pour permettre de créer rapidement ses propres documents. Il faut compter moins d'une heure pour prendre en main la syntaxe (sans mentir #emoji.face.beam). Pour accéder à la documentation, suivez ce #link("https://typst.app/docs", text("lien", fill: typst-color)). Pour faciliter la transition de #LaTeX vers #typst, un guide est disponible #link("https://typst.app/docs/guides/guide-for-latex-users/", text("ici", fill: typst-color)).
+Pour finir, la documentation de #Typst est suffisamment bien écrite et détaillée pour permettre de créer rapidement ses propres documents. Il faut compter moins d'une heure pour prendre en main la syntaxe (sans mentir #emoji.face.beam). Pour accéder à la documentation, suivez ce #link("https://typst.app/docs", text("lien", fill: typst-color)). Pour faciliter la transition de #LaTeX vers #Typst, un guide est disponible #link("https://typst.app/docs/guides/guide-for-latex-users/", text("ici", fill: typst-color)).
 
-#typst peut être utilisé comme #LaTeX de deux manières différentes :
+#Typst peut être utilisé comme #LaTeX de deux manières différentes :
 
 + En ligne, via l'application web #link("https://typst.app", text("Typst", fill: typst-color)). Il suffit de créer un compte pour commencer à rédiger ses documents. L'application web fonctionne de façon similaire à Overleaf. L'offre gratuite est généreuse et permet de :
    - Créer et éditer des projets ;
@@ -35,7 +58,7 @@ Pour finir, la documentation de #typst est suffisamment bien écrite et détaill
 	 - Convertir des fichiers #LaTeX ou Word ;
 	 - 200 Mb de stockage et jusqu'à 100 fichiers par projet.
 
-+ En local, en installant le compilateur #typst. Pour cela, il faut suivre les instructions contenues dans le fichier README.md du dépôt #link("https://github.com/typst/typst", text("Github", fill: typst-color)) officiel. Une fois le compilateur installé, il est possible de compiler ses fichiers en utilisant la commande `typst compile` (compilation unitaire) ou `typst watch` (compilation incrémentale) dans le terminal.
++ En local, en installant le compilateur #Typst. Pour cela, il faut suivre les instructions contenues dans le fichier README.md du dépôt #link("https://github.com/typst/typst", text("Github", fill: typst-color)) officiel. Une fois le compilateur installé, il est possible de compiler ses fichiers en utilisant la commande `typst compile` (compilation unitaire) ou `typst watch` (compilation incrémentale) dans le terminal.
 
   Une solution complémentaire consiste à utiliser un éditeur de texte comme VS Code avec l'extension `Tinymist` pour bénéficier de la coloration syntaxique, de l'autocomplétion et de la prévisualisation (munie d'une fonctionnalité similaire à `synctex` en #LaTeX) et export au format PDF.
 
@@ -43,21 +66,21 @@ Pour finir, la documentation de #typst est suffisamment bien écrite et détaill
 
 La collection de gabarits Cnam est disponible sur le dépôt #link("https://github.com/maucejo/cnam_templates", text("Github", fill: typst-color)) de l'auteur. Vous pouvez ainsi soit cloner le dépôt, soit télécharger le fichier zip de la dernière _Release_ contenant les gabarits. Pour utiliser les gabarits, deux possibilités s'offrent à vous :
 
-+ Copier l'ensemble du dossier `cnam-templates` dans le dossier de votre projet #typst. Vous pouvez alors inclure les gabarits dans votre document en utilisant par exemple la commande :
++ Copier l'ensemble du dossier `cnam-templates` dans le dossier de votre projet #Typst. Vous pouvez alors inclure les gabarits dans votre document en utilisant par exemple la commande :
 	#codesnippet[
 	```typ
 	#import "./src/cnam-templates.typ": *
 	```
 	]
 
-	#ibox[
+	#info-alert[
 		#set text(size: 11pt)
 		L'adresse du fichier à utiliser dans votre fichier principal `nom_de_mon_document.typ` dépend de l'emplacement du dossier `cnam-templates` dans votre projet.
 
 		Il faut toutefois noter que le dossier contenant les gabarits doit être situé dans le même répertoire que votre fichier principal.
 	]
 
-+ Installer localement le dossier `cnam-templates` dans un dossier accessible par le compilateur #typst. Pour cela, il suffit de suivre les instructions de la documentation officielle #link("https://github.com/typst/packages", text("ici", fill: typst-color)). Pour cela, il faut cependant que le nom du dossier corresponde au numéro de version du paquet et que celui-ci soit contenu dans le dossier `cnam-templates` (actuellement `cnam-templates/0.1.0`).
++ Installer localement le dossier `cnam-templates` dans un dossier accessible par le compilateur #Typst. Pour cela, il suffit de suivre les instructions de la documentation officielle #link("https://github.com/typst/packages", text("ici", fill: typst-color)). Pour cela, il faut cependant que le nom du dossier corresponde au numéro de version du paquet et que celui-ci soit contenu dans le dossier `cnam-templates` (actuellement `cnam-templates/0.1.0`).
 
 	#codesnippet[
 		```typ
@@ -81,7 +104,7 @@ La collection de gabarits Cnam est disponible sur le dépôt #link("https://gith
 		```
 	]
 
-	#ibox[Pour installer `just`, il faut suivre les instructions figurant dans le fichier README.md du dépôt #link("https://github.com/casey/just", text("Github", fill: typst-color)) officiel.]
+	#info-alert[Pour installer `just`, il faut suivre les instructions figurant dans le fichier README.md du dépôt #link("https://github.com/casey/just", text("Github", fill: typst-color)) officiel.]
 
 = Utilisation des gabarits
 
@@ -93,7 +116,7 @@ Le dossier `cnam_templates` contient actuellement plusieurs gabarits différents
 - des rapports ;
 - des diaporamas.
 
-#wbox[Pour utiliser les différents gabarits, il faut que les polices `Raleway` et `Crimson Pro` soient installées sur votre ordinateur.]
+#warning-alert[Pour utiliser les différents gabarits, il faut que les polices `Raleway` et `Crimson Pro` soient installées sur votre ordinateur.]
 
 == Lettres
 
@@ -148,7 +171,7 @@ Le modèle #cmd("cnam-lettre") possède un certain nombre de paramètres permett
 	 - `nom` : nom du destinataire ;
 	 - `adresse` : adresse du destinataire.
 
-	#ibox[Les valeurs associées aux clés sont toute de type #dtype("string") ou #dtype("content").]
+	#info-alert[Les valeurs associées aux clés sont toute de type #dtype("string") ou #dtype("content").]
 	]
 
 	#argument("expediteur", default: none, types: "dict")[Coordonnées de l'expéditeur de la lettre.
@@ -159,7 +182,7 @@ Le modèle #cmd("cnam-lettre") possède un certain nombre de paramètres permett
 	 - `telephone` : numéro de téléphone de l'expéditeur ;
 	 - `mail` : adresse mail de l'expéditeur.
 
-	#ibox[Les valeurs associées aux clés sont toute de type #dtype("string") ou #dtype("content").]
+	#info-alert[Les valeurs associées aux clés sont toute de type #dtype("string") ou #dtype("content").]
 	]
 
 	#argument("objet", default: none, types: ("string", "content"))[Objet de la lettre.
@@ -183,7 +206,6 @@ Le modèle #cmd("cnam-lettre") possède un certain nombre de paramètres permett
 	]
 ]
 
-#v(2em)
 == Conventions
 
 Pour utiliser le modèle de conventions, celui-ci doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-convention") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
@@ -240,7 +262,6 @@ Le modèle #cmd("cnam-convention") possède un certain nombre de paramètres per
 	]
 ]
 
-#v(2em)
 == Documents de réunion
 
 Pour utiliser les modèles de document de réunion, celui-ci doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-reunion") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
@@ -299,9 +320,8 @@ Le modèle #cmd("cnam-reunion") possède un certain nombre de paramètres permet
 	]
 
 	#argument("toc", default: false, types: "bool")[Affichage de la table des matières du document.]
-  ]
+]
 
-#v(2em)
 == Rapports
 
 Pour utiliser le modèle de rapport, celui-ci doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-rapport") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
@@ -329,11 +349,11 @@ Le modèle #cmd("cnam-rapport") possède un certain nombre de paramètres permet
 		- type : #dtype("string") ou #dtype("content")
 		-  valeur par défaut : `none` ;
 
-	#colbreak()
 	- `surtitre` : surtitre du rapport
 		- type #dtype("array") ;
 		- valeur par défaut : `("En-tête", "personnalisable")` ;
 
+	#colbreak()
 	- `composante` : composante Cnam rédactrice du rapport (voir section @s:composantes)
 		- type : #dtype("string") ;
 		- valeur par défaut : `"cnam"` ;
@@ -348,11 +368,14 @@ Le modèle #cmd("cnam-rapport") possède un certain nombre de paramètres permet
 		- valeur par défaut : `none`.
 		_Exemple :_ `logo: (image("logo-partenaire1.png"), image("logo-partenaire2.png"))`.
 
-		#ibox[Les logos ne sont affichés que lorsque la valeur de la clé `alignement` est `"center"`.]
+		#info-alert[Les logos ne sont affichés que lorsque la valeur de la clé `alignement` est `"center"`.]
 	]
-  ]
 
-#v(2em)
+	#argument("toc", default: true, types: "bool")[Affichage de la table des matières du rapport.]
+
+	#argument("sec-number", default: true, types: "bool")[Numérotation des sections du rapport.]
+]
+
 == Diaporamas
 
 Pour utiliser le modèle de présentation, celui-ci doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-presentation") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
@@ -374,21 +397,39 @@ Le modèle #cmd("cnam-presentation") est un gabarit construit sur la base du paq
   [body]))[
 	#argument("composante", default: "cnam", types: "string")[Nom de la composante Cnam émettrice de la présentation. Ce paramètre permet de définir le logo qui sera affiché dans l'en-tête de la présentation.
 
-	Pour connaître l'ensemble des valeurs possibles, se réferrer à la section @s:composantes.
+	Pour connaître l'ensemble des valeurs possibles, se référer à la section @s:composantes.
 	]
 
-	#colbreak()
-	#argument("color-set", default: "red", types: "dict")[Nom du thème de couleurs à utiliser pour la présentation.
+	#argument("color-set", default: "theme-red", types: "dict")[Nom du thème de couleurs à utiliser pour la présentation.
 
-	Les valeurs possibles sont :
+	Le gabarit s'accompagne de trois thèmes de couleurs prédéfinis :
 
-	- `"red"` : thème dont la couleur principale est le rouge Cnam ;
+	- `theme-red` : thème dont la couleur principale est le rouge Cnam (valeur par défaut) ;
 
-	- `"medium-blue"` : thème dont la couleur principales est le bleu médium ;
+	- `theme-medium-blue` : thème dont la couleur principales est le bleu médium ;
 
-	- `"light-blue"` : thème dont la couleurprincipale est le bleu clair.
+	- `theme-light-blue` : thème dont la couleurprincipale est le bleu clair.
 
-	#ibox[Le nom des thèmes de couleurs correspond aux noms des couleurs principales de la charte graphique Cnam rappelées en section @s:couleurs.]
+	#info-alert[Le nom des thèmes de couleurs correspond aux noms des couleurs principales de la charte graphique Cnam rappelées en section @s:couleurs.]
+
+	Il est possible de définir son propre thème de couleurs en créant un dictionnaire contenant les clés suivantes :
+	- `primary` : couleur principale ;
+	- `secondary` : couleur secondaire ;
+	- `blue` : bleu foncé ;
+	- `box` : couleur des boîtes colorées ;
+	- `text-title` : couleur des titres ;
+	- `text-focus` : couleur pour les diapositive de type `focus-slide` ;
+	- `section-title` : couleur des titres de section.
+
+	#info-alert[Les diapositives de type `focus-slide` sont des diapositives particulières permettant de mettre en avant un contenu spécifique. Pour les utiliser dans votre présentation, il suffit d'utiliser le code suivant:
+		#codesnippet[
+				```typ
+				#focus-slide[
+					Contenu de la diapositive
+				]
+			```
+		]
+	]
 	]
 
 	#argument("..args", types: "array")[Paramètres supplémentaires à passer au modèle de présentation.
@@ -409,14 +450,13 @@ Le modèle #cmd("cnam-presentation") est un gabarit construit sur la base du paq
 		    - `image` : image d'illustration de la façade du Cnam ;
 		    - `photo` : photographie de la façade du Cnam.
 	]
-  ]
+]
 
-#v(2em)
-== Paramètres communs aux gabarits
+= Paramètres communs aux gabarits
 
 Cette section présente les paramètres communs à l'ensemble des gabarits de la collection. Ces paramètres permettent de personnaliser les gabarits en fonction des besoins de l'utilisateur.
 
-=== Paramètre `composante` <s:composantes>
+== Paramètre `composante` <s:composantes>
 
 La liste des valeurs possibles du paramètre `composante` sont :
 
@@ -483,7 +523,7 @@ La liste des valeurs possibles du paramètre `composante` sont :
 	- `"satie"`
 	- `"sayfood"`
 
-=== Couleurs <s:couleurs>
+== Couleurs <s:couleurs>
 
 Les couleurs principales et secondaires de la charte graphique sont accessibles via les différents gabarits.
 
@@ -557,4 +597,4 @@ Si vous souhaitez contribuer à l'amélioration des gabarits ou solliciter la cr
 
 - contacter l'auteur par mail à l'adresse suivante : #link("mailto:mathieu.aucejo@lecnam.net", text("mathieu.aucejo@lecnam.net", fill: typst-color)).
 
-#bibliography("manual-biblio.yml", style: "american-institute-of-aeronautics-and-astronautics")
+#bibliography("manual-biblio.yml", style: "elsevier-with-titles")

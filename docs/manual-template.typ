@@ -1,29 +1,13 @@
-#import "@preview/showybox:2.0.1": *
-#import "@preview/hydra:0.4.0": hydra
-#import "@preview/mantys:0.1.3": *
-#import "@preview/cheq:0.1.0": *
+#import "@preview/showybox:2.0.4": *
+#import "@preview/hydra:0.6.2": hydra
+#import "@preview/mantys:1.0.2": *
+#import "@preview/cheq:0.2.3": *
+#import "@preview/swank-tex:0.1.0": LaTeX
 
 #let vskip = 1em
 #let typst-color = rgb(35,157,173)
 
-#let typst = text("Typst", fill: typst-color)
-#let TeX = {
-  set text(font: "New Computer Modern", weight: "regular")
-  box(width: 1.7em, {
-    [T]
-    place(top, dx: 0.56em, dy: 0.22em)[E]
-    place(top, dx: 1.1em)[X]
-  })
-}
-
-#let LaTeX = {
-  set text(font: "New Computer Modern", weight: "regular")
-  box(width: 2.55em, {
-    [L]
-    place(top, dx: 0.3em, text(size: 0.7em)[A])
-    place(top, dx: 0.7em)[#TeX]
-  })
-}
+#let Typst = text("Typst", fill: typst-color)
 
 #let example-box(body) = {
   showybox(
@@ -71,21 +55,13 @@
 
   set list(indent: 2em)
 
-  show raw: set text(font: "Liberation Mono", size: 11pt)
+  show raw: set text(font: "Roboto", size: 11pt)
 
   set ref(supplement: none)
 
   // Figures
   show figure.where(kind: image): set figure(numbering: "1", supplement: "Figure", gap: 1.5em)
   show figure.where(kind: image): set figure.caption(separator: [ -- ])
-
-  // Subfigures
-  // Updates subfigure counter properly
-  show figure.where(kind:image): it => {
-    counter(figure.where(kind:"subfigure")).update(0)
-    it
-  }
-  show figure.where(kind: "subfigure"): set figure.caption(separator: [ ])
 
   show heading.where(level: 1): it => {
     if it.numbering != none {
