@@ -1,0 +1,15 @@
+[package]
+name = "cnam-templates"
+version = "0.1.0"
+authors = ["Mathieu Aucejo"]
+license = "MIT"
+description = "Official templates for the Cnam"
+entrypoint = "src/cnam-templates.typ"
+categories = ["report", "presentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/main.png"
+
+
