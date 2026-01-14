@@ -42,7 +42,7 @@
     config-store(
       align: align,
       colors: theme-red + color-set,
-      color-theme-name: color-set,
+      color-theme-name: color-set.name,
       composante: composante,
       title-logo-height: 8%,
       logo: image("../resources/logo/" + composante + ".png"),

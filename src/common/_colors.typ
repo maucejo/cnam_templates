@@ -40,16 +40,18 @@
 )
 
 #let theme-red = (
-    primary: rgb("c1002a"),
-    secondary: rgb("a1d6df"),
-    blue: rgb("11304c"),
-    box: rgb("11304c"),
-    text-title: white,
-    text-focus: rgb("c1002a"),
-    section-title: rgb("c1002a"),
+  name: "theme-red",
+  primary: rgb("c1002a"),
+  secondary: rgb("a1d6df"),
+  blue: rgb("11304c"),
+  box: rgb("11304c"),
+  text-title: white,
+  text-focus: rgb("c1002a"),
+  section-title: rgb("c1002a"),
 )
 
 #let theme-light-blue = (
+  name: "theme-light-blue",
   primary: rgb("a1d6df"),
   secondary: rgb("a1d6df"),
   blue: rgb("11304c"),
@@ -60,6 +62,7 @@
 )
 
 #let theme-medium-blue = (
+  name: "theme-medium-blue",
   primary: rgb("4485c5"),
   secondary: rgb("4485c5"),
   blue: rgb("11304c"),

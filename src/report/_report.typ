@@ -27,8 +27,6 @@
 
   set enum(indent: 1em)
 
-  set ref(supplement: none)
-
   set page(
     paper: "a4",
     header: none,
@@ -95,6 +93,9 @@
       box(outset: 6pt, stroke: (left: 1pt + primary.dark-blue, bottom: 1pt + primary.dark-blue))[#current-page]
       }
   }
+
+  show figure.where(kind: table): set figure.caption(position: top)
+  set ref(supplement: none)
 
   set page(
     paper: "a4",

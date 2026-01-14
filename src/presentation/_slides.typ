@@ -20,6 +20,7 @@
     let align = _typst-builtin-align
     set strong(delta: 50)
     let header(self) = {
+      show linebreak: none
       set align(top)
       show: components.cell.with(inset: 1em)
       set text(size: 1.25em)
@@ -64,7 +65,7 @@
     if self.info.facade == "image" {
       title-box(self.store.colors.primary, title: text(size: 50pt)[*#self.info.title*], subtitle: text(size: 20pt, weight: "light")[*#self.info.subtitle*], color-title: self.store.colors.text-title)
 
-      place(center + bottom, dy: 0.5cm, image("../resources/assets/facade-image-theme-" + self.store.color-theme-name + ".png", width: 95%, height: 28%))
+      place(center + bottom, dy: 0.5cm, image("../resources/assets/facade-image-" + self.store.color-theme-name + ".png", width: 95%, height: 28%))
 
     } else if self.info.facade == "photo" {
 

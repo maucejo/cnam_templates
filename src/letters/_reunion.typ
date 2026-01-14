@@ -38,6 +38,7 @@
 
   set par(justify: true)
 
+  show figure.where(kind: table): set figure.caption(position: top)
   set figure(supplement: "Figure", numbering: "1")
   set figure.caption(separator: [ -- ] )
 

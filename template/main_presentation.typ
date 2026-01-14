@@ -10,7 +10,7 @@
     subtitle: [Sous-titre de la présentation],
     over-title: ("Diaporama","de présentation"),
     // facade: "image",
-    facade: "photo",
+    // facade: "photo",
   ),
 )
 
@@ -18,7 +18,7 @@
 
 #content-slide()
 
-= Titre de la section
+= Titre \ de la section
 
 == Sous-titre de la section
 
