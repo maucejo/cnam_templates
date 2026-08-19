@@ -1,7 +1,7 @@
 #import "@preview/showybox:2.0.4": *
 #import "@preview/hydra:0.6.2": hydra
 #import "@preview/mantys:1.0.2": *
-#import "@preview/cheq:0.2.3": *
+#import "@preview/cheq:0.3.1": *
 #import "@preview/swank-tex:0.1.0": LaTeX
 #import "@preview/cnam-templates:0.1.0": *
 

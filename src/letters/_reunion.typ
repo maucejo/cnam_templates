@@ -9,6 +9,8 @@
   lieu: none,
   date: none,
   toc: false,
+  surtitre: ("Compte-rendu", "de réunion"),
+  signature: none,
   body
 ) = {
   let logo-height = 4.08cm
@@ -39,7 +41,8 @@
   set par(justify: true)
 
   show figure.where(kind: table): set figure.caption(position: top)
-  set figure(supplement: "Figure", numbering: "1")
+  show figure.where(kind: image): set figure(supplement: "Figure")
+  set figure(numbering: "1")
   set figure.caption(separator: [ -- ] )
 
   let footer = {
@@ -54,18 +57,21 @@
     margin: (top: 2cm, bottom: 2cm, left: 1.5cm, right: 1.5cm)
   )
 
-  let surtitre = ("Compte-rendu", "de réunion")
-  if type == "pv" {
-    surtitre = ("Procès", "verbal")
-  } else if type == "odj" {
-    surtitre = ("Ordre", "du jour")
+  let sur-titre =if type .contains("pv") {
+    ("Procès", "verbal")
+  } else if type.contains("odj") {
+    ("Ordre", "du jour")
+  } else if type.contains("cr") {
+    ("Compte rendu", "de réunion")
+  } else if type.contains("custom") {
+    surtitre
   }
 
   let en-tete = {
     grid(
       columns: (1fr, 1fr),
       align: (left, right),
-      [#over-title(title: surtitre, size: 20pt, color: primary.dark-blue)], [#place(right, dx: decx, dy: decy, image("../resources/logo/" + composante + ".png", width: logo-height))]
+      [#over-title(title: sur-titre, size: 20pt, color: primary.dark-blue)], [#place(right, dx: decx, dy: decy, image("../resources/logo/" + composante + ".png", width: logo-height))]
     )
   }
 
@@ -107,7 +113,7 @@
     pagebreak()
   }
 
-  if type == "odj" {
+  if type.contains("odj") {
     set enum(spacing: 1.25em)
     let content = box(width: 85%)[
       #body
@@ -121,12 +127,16 @@
   if redacteur != none {
     set align(right)
     v(2em)
-    if type == "pv" {
+    if type.contains("pv") {
       [_Procès-verbal rédigé par :_]
+    } else if type.contains("odj") or type.contains("custom") {
+      none
     } else {
       [_Compte-rendu rédigé par :_]
     }
     linebreak()
     redacteur
+    linebreak()
+    signature
   }
 }

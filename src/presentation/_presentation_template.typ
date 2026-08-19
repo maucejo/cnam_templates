@@ -1,4 +1,4 @@
-#import "@preview/touying:0.6.1": *
+#import "../common/_deps.typ": *
 #import "_slides.typ": *
 #import "../common/_colors.typ": *
 

@@ -1,5 +1,4 @@
-// #import "@preview/touying:0.5.2": *
-#import "@preview/touying:0.6.1": *
+#import "../common/_deps.typ": *
 #import "../common/_colors.typ": *
 
 #let _over-title(self: none, title, size) = {

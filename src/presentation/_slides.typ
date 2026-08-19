@@ -1,4 +1,4 @@
-#import "@preview/touying:0.6.1": *
+#import "../common/_deps.typ": *
 #import "_pres-utils.typ": *
 
 #let _typst-builtin-align = align
